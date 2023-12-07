@@ -53,10 +53,10 @@ II. Sử dụng ứng dụng:
     + Thanh điều hướng ở trên cùng có 4 nút: Home, About us, FCM và FCM 2. 
     + Hướng dẫn này sử dụng chương trình FCM 2
     ![Alt text](image2.png)
-    + Ấn nút "Choose file" để chọn file ảnh MRI muốn xử lý
+    + Ấn nút "Choose file" để chọn file ảnh MRI muốn xử lý và lựa chọn file trong folder "MAIN_APP/FCM_Parallel/img"
     + Lựa chọn bên dưới: 1 là chạy song song, 2 là chạy tuần tự
     + Sau đó ấn nút "OK" và đợi vài giây để chương trình xử lý
     + Khi chương trình xử lý xong, in ra màn hình tiếp theo là đường dẫn đến ảnh mới, cùng nút "Kết quả"
     + Khi ấn nút "Kết quả", ảnh mới đã được xử lý đó sẽ được in ra màn hình
     ![Alt text](image3.png)
-    + Chương trình FCM sử dụng tương tự, bỏ qua bước chọn option
+    + Để dùng chương trình FCM, chọn file trong folder "MAIN_APP/FCM/img", không cần bước chọn option, còn lại chạy giống như trên
