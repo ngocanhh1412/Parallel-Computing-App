@@ -12,6 +12,18 @@ class SkullMask:
         edges = cv2.Canny(image, low_threshold, high_threshold)
         return edges
 
+    # def find_contours(self, image):
+    #     # Áp dụng GaussianBlur để giảm nhiễu và làm mờ ảnh
+    #     blurred = cv2.GaussianBlur(image, (5, 5), 0)
+
+    #     # Áp dụng ngưỡng để tạo ảnh nhị phân
+    #     edges = self.canny_edge(blurred)
+
+    #     # Tìm contour trong ảnh nhị phân
+    #     contours, _ = cv2.findContours(edges, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+
+    #     return cv2.contourArea(contours[0])
+
     def find_contours(self, image):
         # Áp dụng GaussianBlur để giảm nhiễu và làm mờ ảnh
         blurred = cv2.GaussianBlur(image, (5, 5), 0)
@@ -21,8 +33,11 @@ class SkullMask:
 
         # Tìm contour trong ảnh nhị phân
         contours, _ = cv2.findContours(edges, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+        
+        sorted_contours = sorted(contours, key=cv2.contourArea, reverse=True)
 
-        return cv2.contourArea(contours[0])
+        areas = [cv2.contourArea(contour) for contour in sorted_contours]
+        return np.max(areas)
 
     def apply_gmm_segmentation(self, image, n_components=4):
         image_flat = image.flatten().reshape(-1, 1)
