@@ -17,8 +17,23 @@ I. Cài đặt ứng dụng:
 git clone https://github.com/ngocanhh1412/Parallel-Computing-App
 ```
 
-## Các thư viện Python cần có 
-Mở terminal ở thư mục project và chạy lệnh:
+## Môi trường ứng dụng
+Có 2 cách để cài các thư viện cần thiết của ứng dụng: sử dụng Anaconda (khuyên dùng) hoặc dùng CUDA toolkit của NVIDIA
+
+## Cách 1: Dùng Anaconda:
+Dùng lệnh:
+```bash
+conda install (các thư viện đã được liệt kê trong file libraries.txt cùng các phiên bản nên cài)
+```
+Cài thêm thư viện cudatoolkit:
+```bash
+conda install -c anaconda cudatoolkit
+```
+
+## Cách 2: Dùng CUDA toolkit và môi trường pip
+Cài đặt [CUDA toolkit](https://developer.nvidia.com/cuda-downloads)
+
+Sau đó mở terminal ở thư mục project đã tải và chạy lệnh:
 ```bash
 pip install -r libraries.txt
 ```

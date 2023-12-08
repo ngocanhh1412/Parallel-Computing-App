@@ -4,7 +4,6 @@ fastapi == 0.103.2
 imageio == 2.31.4
 imutils == 0.5.4
 matplotlib == 3.8.0
-cudatoolkit == 11.8.0
 numba == 0.58.1
 numpy == 1.24.3
 opencv-python == 4.6.0
