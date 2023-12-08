@@ -3,10 +3,7 @@
 HƯỚNG DẪN CHẠY CHƯƠNG TRÌNH
 
 I. Cài đặt ứng dụng:
-1. Cài đặt NPM:
-- Bước 1: Vào trang chủ của [nodejs](https://nodejs.org/en)
-- Bước 2: Tải phiên bản được khuyên dùng (nút bên trái)
-- Bước 3: Cài đặt chương trình
+1. Cài đặt NPM: Vào trang chủ của [nodejs](https://nodejs.org/en), tải phiên bản được khuyên dùng (nút bên trái) và cài đặt chương trình
 
 2. Cài đặt chương trình:
 - [Truy cập vào link Github](https://github.com/ngocanhh1412/Parallel-Computing-App)
@@ -18,7 +15,7 @@ git clone https://github.com/ngocanhh1412/Parallel-Computing-App
 ```
 
 ## Môi trường ứng dụng
-Có 2 cách để cài các thư viện cần thiết của ứng dụng: sử dụng Anaconda (khuyên dùng) hoặc dùng CUDA toolkit của NVIDIA
+Có 2 cách để cài các thư viện cần thiết của ứng dụng: sử dụng Anaconda (khuyên dùng) hoặc dùng CUDA toolkit của NVIDIA và môi trường pip
 
 ## Cách 1: Dùng Anaconda:
 Dùng lệnh:
