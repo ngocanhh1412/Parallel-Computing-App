@@ -29,7 +29,7 @@ def tumor_part(c):
     else:
         solidity = 0
 
-    if solidity > 0.5 and area > 500:
+    if solidity > 0.7 and area > 500:
         return True
     else:
         return False
