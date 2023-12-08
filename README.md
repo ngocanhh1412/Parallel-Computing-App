@@ -2,25 +2,41 @@
 
 HƯỚNG DẪN CHẠY CHƯƠNG TRÌNH
 
-I. Những thư viện cần thiết:
-1. Thư viện Python:
-- colorsys
-- cupy
-- fastapi
-- imageio
-- imutils
-- matplotlib.pyplot
-- numba
-- numpy
-- opencv
-- pydantic
-- scipy
-- sklearn.mixture
-2. Thư viện React:
-- axios
-- react
-- react-dom
-- react-router-dom
+I. Cài đặt ứng dụng:
+1. Cài đặt NPM:
+- Bước 1: Vào trang chủ của [nodejs](https://nodejs.org/en)
+- Bước 2: Tải phiên bản được khuyên dùng (nút bên trái)
+- Bước 3: Cài đặt chương trình
+
+2. Cài đặt chương trình:
+- [Truy cập vào link Github](https://github.com/ngocanhh1412/Parallel-Computing-App)
+- Download project về máy, giải nén và làm theo hướng dẫn bên dưới
+
+## Nếu có ứng dụng của Git trên máy
+```bash
+git clone https://github.com/ngocanhh1412/Parallel-Computing-App
+```
+
+## Các thư viện Python cần có 
+Mở terminal ở thư mục project và chạy lệnh:
+```bash
+pip install -r libraries.txt
+```
+
+## Các thư viện NPM cần có
+Mở terminal ở thư mục "main-app" và chạy các lệnh sau:
+```bash
+npm install axios
+npm install react
+npm install react-dom
+npm install react-router-dom
+```
+
+Trong trường hợp đã cài các thư viện trên, nếu không khởi động server được và báo lỗi thì xoá thư mục "node_modules" và chạy lệnh:
+```bash
+npm install
+```
+Sau đó cài lại các thư viện trên.
 
 II. Sử dụng ứng dụng:
 1. Về ứng dụng:
@@ -46,9 +62,18 @@ II. Sử dụng ứng dụng:
 
 3. Dùng ứng dụng:
 - Bước 1: Khởi động ReactJS và FastAPI:
-    + Mở terminal tại folder "MAIN_APP/main-app", nhập: npm start
-    + Mở terminal tại folder "MAIN_APP/FCM", nhập: uvicorn app:app --port 8000
-    + Mở terminal tại folder "MAIN_APP/FCM_Parallel", nhập: uvicorn app:app --port 8001
+    + Mở terminal tại folder "MAIN_APP/main-app", nhập: 
+    ```bash
+    npm start
+    ```
+    + Mở terminal tại folder "MAIN_APP/FCM", nhập: 
+    ```bash
+    uvicorn app:app --port 8000
+    ```
+    + Mở terminal tại folder "MAIN_APP/FCM_Parallel", nhập:
+    ```bash
+    uvicorn app:app --port 8001
+    ```
 - Bước 2: Tương tác với giao diện: 
     + Thanh điều hướng ở trên cùng có 4 nút: Home, About us, FCM và FCM 2. 
     + Hướng dẫn này sử dụng chương trình FCM 2
