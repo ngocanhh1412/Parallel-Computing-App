@@ -1,0 +1,81 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* custom css */
+
+.custom-file-input {
+  border: 2px solid #333;
+  padding: 0.2em 0.4em;
+  border-radius: 0.3rem;
+  background-color: white;
+  transition: 0.5s;
+}
+
+.custom-file-input:hover {
+  background-color: #04AA6D;
+  border: 2px solid #04AA6D;
+}
+
+.button {
+  display: inline-block;
+  text-decoration: none;
+  color: black;
+  background-color: white;
+  border-radius: 0.3rem;
+  align-items: right;
+  justify-content: right;
+  width: 100px; 
+  height: 50px;
+  transition: 0.5s;
+}
+
+.button:hover {
+  background-color: #04AA6D;
+  border: 2px solid #04AA6D;
+}
+
+.custom-select {
+  width: 200px;
+  height: 30px;
+  padding: 5px;
+  border: 1px solid #04AA6D;
+  border-radius: 0.3rem;
+  font-size: 14px;
+  color: #333;
+}
