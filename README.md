@@ -65,27 +65,33 @@ II. Sử dụng ứng dụng:
 - Trước tiên người dùng cần cài các thư viện cần thiết đã liệt kê ở trên
 - Về input:
     + Chương trình sẽ nhận file ảnh y tế DICOM nên file cần có dạng ".dcm"
-    + Hãy đưa ảnh MRI muốn xử lý vào folder "img" 
-    + Nếu muốn dùng chương trình FCM, hãy đưa ảnh vào folder "FCM/img", còn FCM 2 thì đưa vào folder "FCM_Parallel/img"
-    + Trong folder img của cả 2 chương trình đã có sẵn 4 file DICOM MRI chứa u não
+    + Hãy đưa ảnh MRI muốn xử lý vào thư mục "img" 
+    + Nếu muốn dùng chương trình FCM, hãy đưa ảnh vào thư mục "FCM/img", còn FCM 2 thì đưa vào thư mục "FCM_Parallel/img"
+    + Trong thư mục img của cả 2 chương trình đã có sẵn 4 file DICOM MRI chứa u não
 - Về output:
     + Sau khi nhận ảnh và xử lý, chương trình sẽ lưu ảnh mới
-    + Trước khi dùng, người dùng cần phải thiết lập folder output để chương trình lưu ảnh vào
-    + Trong folder FCM sửa nội dung của file .env: OUTPUT_PATH = (Đường dẫn thư mục output mong muốn) để lưu kết quả cho chương trình FCM
-    + Tương tự cho chương trình FCM 2, sửa file .env: OUTPUT_PATH2 = (Đường dẫn thư mục output mong muốn)
-    + Người dùng có thể sử dụng 2 folder "FCM/output" và "FCM_Parallel/output" đã được tạo sẵn
+    + Trước khi dùng, người dùng cần phải thiết lập thư mục output để chương trình lưu ảnh vào
+    + Trong thư mục FCM sửa nội dung của file .env để chọn thư mục lưu kết quả cho chương trình FCM:
+    ```bash
+    OUTPUT_PATH = (Đường dẫn thư mục output mong muốn)
+    ```
+    + Tương tự cho chương trình FCM 2, sửa file .env:
+    ```bash
+    OUTPUT_PATH2 = (Đường dẫn thư mục output mong muốn)
+    ```
+    + Người dùng có thể sử dụng 2 thư mục "FCM/output" và "FCM_Parallel/output" đã được tạo sẵn
 
 3. Dùng ứng dụng:
 - Bước 1: Khởi động ReactJS và FastAPI:
-    + Mở terminal tại folder "main-app", nhập: 
+    + Mở terminal tại thư mục "main-app", nhập: 
     ```bash
     npm start
     ```
-    + Mở terminal tại folder "FCM", nhập: 
+    + Mở terminal tại thư mục "FCM", nhập: 
     ```bash
     uvicorn app:app --port 8000
     ```
-    + Mở terminal tại folder "FCM_Parallel", nhập:
+    + Mở terminal tại thư mục "FCM_Parallel", nhập:
     ```bash
     uvicorn app:app --port 8001
     ```
@@ -93,10 +99,10 @@ II. Sử dụng ứng dụng:
     + Thanh điều hướng ở trên cùng có 4 nút: Home, About us, FCM và FCM 2. 
     + Hướng dẫn này sử dụng chương trình FCM 2
     ![Alt text](image2.png)
-    + Ấn nút "Choose file" để chọn file ảnh MRI muốn xử lý và lựa chọn file trong folder "FCM_Parallel/img"
+    + Ấn nút "Choose file" để chọn file ảnh MRI muốn xử lý và lựa chọn file trong thư mục "FCM_Parallel/img"
     + Lựa chọn bên dưới: 1 là chạy song song, 2 là chạy tuần tự
     + Sau đó ấn nút "OK" và đợi vài giây để chương trình xử lý
     + Khi chương trình xử lý xong, in ra màn hình tiếp theo là đường dẫn đến ảnh mới, cùng nút "Kết quả"
     + Khi ấn nút "Kết quả", ảnh mới đã được xử lý đó sẽ được in ra màn hình
     ![Alt text](image3.png)
-    + Để dùng chương trình FCM, chọn file trong folder "FCM/img", không cần bước chọn option, còn lại chạy giống như trên
+    + Để dùng chương trình FCM, chọn file trong thư mục "FCM/img", không cần bước chọn option, còn lại chạy giống như trên
