@@ -15,12 +15,17 @@ load_dotenv()
 PATH2 = os.getenv("OUTPUT_PATH2")
 
 def blur_image(img):
-    # Áp dụng lọc trung bình
+    """
+    Applies a mean filter (5x5 kernel) to the input image.
+    """
     kernel = np.ones((5,5),np.float32)/25
     blur = cv2.filter2D(img,-1,kernel)
     return blur
 
 def tumor_part(c):
+    """
+    Checks if a contour represents a significant tumor region based on solidity and area criteria.
+    """
     area = cv2.contourArea(c)
     hull = cv2.convexHull(c)
     hull_area = cv2.contourArea(hull)
@@ -34,12 +39,20 @@ def tumor_part(c):
     else:
         return False
 def threshold(img,b):
-    # Phân ngưỡng
+    """
+    Applies a binary threshold to the input image.
+    """
     ret,thresh = cv2.threshold(img,b,255,cv2.THRESH_BINARY)
     return thresh
 def RGB(img):
+    """
+    Converts a grayscale image to RGB format.
+    """
     return cv2.cvtColor(img, cv2.COLOR_GRAY2BGR)
 def contours(img,org,b):
+    """
+    Finds and draws contours on the input images based on thresholding and tumor region criteria.
+    """
     # img = RGB(img)
     img2 = threshold(img,b)
     # plt.imshow(img2)
@@ -55,6 +68,9 @@ def contours(img,org,b):
 
     return (org, img2)
 def show_images(gray, blur, seg, cont_org, cont_mask):
+    """
+    Displays a set of resized images for visualization.
+    """
     blur = cv2.resize(blur, (256, 256))
     seg  = cv2.resize(seg, (256, 256))
     cont_org = cv2.resize(cont_org, (256, 256))
@@ -68,6 +84,9 @@ def show_images(gray, blur, seg, cont_org, cont_mask):
     new_file_path = f"{output_img_path}"
     cv2.imwrite(new_file_path, res2)
 def fcm(img, option):
+    """
+    Applies Fuzzy C-means clustering to the input image.
+    """
     Z = img.reshape((-1, 1))
     Z = np.float32(Z)
     fuzz = FCM(image = Z, image_bit = 8, n_clusters = 8, m = 2, epsilon = 0.01, max_iter = 100, option= option)
@@ -83,6 +102,9 @@ def fcm(img, option):
     res2 = res.reshape(img.shape)
     return res2
 def process(img3, b, option):
+    """
+    Processes the input image by converting to grayscale, applying blur, segmentation, and contour detection.
+    """
     gray = cv2.cvtColor(img3, cv2.COLOR_BGR2GRAY)
     blur = blur_image(gray)
     seg = fcm(blur, option)

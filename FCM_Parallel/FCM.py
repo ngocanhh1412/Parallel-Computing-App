@@ -24,7 +24,9 @@ class FCM():
 
 
     def get_mean_image_in_window(self, image, kernel):
-        '''Get image consisting of mean values ​​of neighboring pixels in a window '''    
+        """
+        Get image consisting of mean values ​​of neighboring pixels in a window.
+        """    
         neighbor_sum = convolve2d(
             image, kernel, mode='same',
             boundary='fill', fillvalue=0)
@@ -35,7 +37,9 @@ class FCM():
 
         return neighbor_sum / num_neighbor  
     def get_filtered_image(self):
-        
+        """
+        Apply convolution to get a filtered image.
+        """
          # Create padding image
         print("Getting filtered image..") 
         
@@ -50,12 +54,18 @@ class FCM():
         dtype = self.image.dtype
         self.filtered_image = filtered_image.reshape(self.shape).astype(dtype)
     
-    def calculate_histogram(self):        
+    def calculate_histogram(self):  
+        """
+        Compute the histogram of the filtered image.
+        """           
         hist_max_value = (1 << self.image_bit)
         hist = cv2.calcHist([self.filtered_image],[0],None,[hist_max_value],[0,hist_max_value])
         self.num_gray = len(hist)
         self.histogram = hist
     def initial_U(self):
+        """
+        Initialize the fuzzy membership matrix.
+        """
         idx = np.arange(self.numPixels)
         
         for ii in range(self.n_clusters):
@@ -64,7 +74,9 @@ class FCM():
         return self.U
     
     def update_U(self):
-        '''Compute weights'''
+        """
+        Update the fuzzy membership matrix.
+        """
         c_mesh, idx_mesh = np.meshgrid(self.C, self.X)
         power = 2./(self.m-1)
         p1 = abs(idx_mesh-c_mesh)**power
@@ -74,6 +86,9 @@ class FCM():
 
 
     def update_C(self):
+        """
+        Update the cluster centroids.
+        """
         if self.option == 1:
             numerator = vecmatmul_cuda(self.X,self.U**self.m)
             numerator2 = cp.dot(self.X,self.U**self.m)
@@ -95,6 +110,9 @@ class FCM():
             return numerator/denominator
 
     def form_clusters(self):
+        """
+        Perform iterative training for clustering.
+        """
         self.get_filtered_image() 
         self.calculate_histogram()
         '''Iterative training'''
@@ -127,12 +145,16 @@ class FCM():
         return self.segmentImage()
 
     def deFuzzify(self):
+        """
+        De-fuzzify the fuzzy membership matrix.
+        """
         # center = np.uint8(self.U)
         return np.argmax(self.U, axis=1)
 
     def segmentImage(self):
-        '''Segment image based on max weights'''
-
+        """
+        Segment the image based on max weights.
+        """
         result = self.deFuzzify()
         self.result = result.reshape(self.shape).astype('int')
         

@@ -21,14 +21,14 @@ class SkullMask:
     - image (numpy.ndarray): The input image.
     """
 
-    def __init__(self, file_path):
+    def __init__(self, image):
         """
         Initializes the RemoveMostSkull object with the path to the image file.
 
         Parameters:
         - file_path (str): The path to the image file.
         """
-        self.image = imageio.v2.imread(file_path)
+        self.image = image
 
     def canny_edge(self, image, low_threshold=0, high_threshold=255):
         """
@@ -87,7 +87,7 @@ class SkullMask:
         return tumor_mask
 
 
-    def skull_mask(self):
+    def skull_strip(self):
         """
         Removes the skull from the input image using Gaussian Mixture Model (GMM) segmentation.
 

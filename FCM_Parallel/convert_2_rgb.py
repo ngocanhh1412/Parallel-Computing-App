@@ -3,10 +3,40 @@ import cv2
 import numpy as np 
 import matplotlib.pyplot as plt
 class Convert2RGB:
+    """
+    Class for converting DICOM images to RGB format.
+
+    This class provides methods to convert DICOM images to grayscale and then to RGB format.
+    It also includes functions for handling intensity scaling and RGB color conversion.
+
+    Methods:
+    - convert2Gray(img): Converts a DICOM image to grayscale.
+    - getRGB(val, minval, maxval): Converts a grayscale value to RGB color.
+    - convert2Uint8(img, target_type_min, target_type_max, target_type): Scales image intensity to uint8 range.
+    - convert2RGB(): Converts a DICOM image to RGB format.
+
+    Args:
+    - image (ndarray): Input DICOM image.
+
+    Attributes:
+    - image (ndarray): Input DICOM image.
+    """
+
     def __init__(self, image):
         self.image = image 
+
     # convert from dcm to rgb
     def convert2Gray(self, img):
+        """
+        Converts a DICOM image to grayscale.
+        Algorithm:
+        1. Resize input image to 512x512 pixels.
+        2. Normalize pixel values.
+        3. Map intensity values to 256 grayscale bins.
+        4. Create a 512x512 matrix (F) to store mapped values.
+        5. Iterate through pixels, map intensity to bins, and store in F.
+        6. Return F as grayscale image.
+        """
         img = cv2.resize(img, (512, 512))
 
         A = np.zeros([512, 512])
@@ -60,11 +90,17 @@ class Convert2RGB:
         return F
 
     def getRGB(self, val, minval,  maxval):
+        """
+        Converts a grayscale value to RGB color.
+        """
         h = (float(val-minval)/(maxval-minval)) * 255
         r, g, b = hsv_to_rgb(h/255, 1., 1.)
         return r, g, b
 
     def convert2Uint8(self, img, target_type_min, target_type_max, target_type):
+        """
+        Scales image intensity to uint8 range.
+        """
         imin = img.min()
         imax = img.max()
 
@@ -74,6 +110,9 @@ class Convert2RGB:
         return new_img
 
     def convert2RGB(self):
+        """
+        Converts a DICOM image to RGB format.
+        """
         img_grey = self.convert2Gray(self.image)
 
         img_rgb = np.zeros(shape=(512,512,3), dtype=np.float64)
