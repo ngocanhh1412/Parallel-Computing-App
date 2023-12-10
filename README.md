@@ -2,6 +2,8 @@
 
 HƯỚNG DẪN CHẠY CHƯƠNG TRÌNH
 
+**CHÚ Ý: MÁY CẦN CÓ GPU NVIDIA ĐỂ CHẠY ĐƯỢC CHƯƠNG TRÌNH!!!
+
 I. Cài đặt ứng dụng:
 1. Cài đặt NPM: Vào trang chủ của [nodejs](https://nodejs.org/en), tải phiên bản được khuyên dùng (nút bên trái) và cài đặt chương trình
 
