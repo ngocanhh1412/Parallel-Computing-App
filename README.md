@@ -22,7 +22,7 @@ Các thư viện Python cần thiết đã được liệt kê ở trong file "l
 ## Cách 1: Dùng Anaconda:
 Dùng lệnh:
 ```bash
-conda install (các thư viện đã được liệt kê trong file libraries.txt cùng các phiên bản nên cài)
+conda install (các thư viện đã được liệt kê trong file libraries.txt cùng các phiên bản NÊN cài (Không bắt buộc))
 ```
 Cài thêm thư viện cudatoolkit:
 ```bash
